@@ -1,3 +1,4 @@
+require "test/unit"
 class Employee
 include Comparable
 attr_accessor :name
@@ -14,7 +15,16 @@ attr_accessor :name
 end
 emp=Array.new
 
-emp=[Employee.new("Ramya",33,"address1"),Employee.new("Anu",33,"address2"),Employee.new("Suma",32,"address3")]
-#empsrt=emp.sort_by {|e| e.name}
-#puts empsrt
+emp=[Employee.new("a",33,"address1"),Employee.new("bAnu",33,"address2")]
+
 puts emp.sort.to_s
+class TestTriangle < Test::Unit::TestCase
+
+  def test_sort
+    
+    emp = [Employee.new("vani",33,"address1"),Employee.new("bAnu",33,"address2")]
+    empsrt=emp.sort_by {|e| e.name}
+    empsrt.to_s
+    assert_equal(empsrt.to_s, emp.sort.to_s)
+  end
+end
