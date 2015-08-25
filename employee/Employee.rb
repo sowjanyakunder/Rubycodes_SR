@@ -15,16 +15,16 @@ attr_accessor :name
 end
 emp=Array.new
 
-emp=[Employee.new("a",33,"address1"),Employee.new("bAnu",33,"address2")]
+emp=[Employee.new("Rashmi",33,"address1"),Employee.new("Anu",33,"address2"),Employee.new("Pari",31,"address3")]
 
 puts emp.sort.to_s
 class TestTriangle < Test::Unit::TestCase
 
   def test_sort
+    emp=[Employee.new("Rashmi",33,"address1"),Employee.new("Anu",33,"address2"),Employee.new("Pari",31,"address3")]
     
-    emp = [Employee.new("vani",33,"address1"),Employee.new("bAnu",33,"address2")]
-    empsrt=emp.sort_by {|e| e.name}
-    empsrt.to_s
-    assert_equal(empsrt.to_s, emp.sort.to_s)
+    assert_equal(emp[1],emp.sort[0])
+    assert_equal(emp[2],emp.sort[1])
+    assert_equal(emp[0],emp.sort[2])
   end
 end
